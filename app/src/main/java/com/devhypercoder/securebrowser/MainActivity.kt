@@ -1,7 +1,6 @@
 package com.devhypercoder.securebrowser
 
 import android.os.Bundle
-import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 
 class MainActivity : AppCompatActivity() {
