@@ -10,10 +10,10 @@ import android.widget.FrameLayout;
 public class VideoWebChromeClient
         extends WebChromeClient implements MediaPlayer.OnPreparedListener, MediaPlayer.OnCompletionListener, MediaPlayer.OnErrorListener {
 
-    private View activityNonVideoView;
-    private ViewGroup activityVideoView;
-    private View loadingView;
-    private WebView webView;
+    private final View activityNonVideoView;
+    private final ViewGroup activityVideoView;
+    private final View loadingView;
+    private final WebView webView;
 
     private boolean isVideoFullscreen; // Indicates if the video is being displayed using a custom view (typically full-screen)
     private FrameLayout videoViewContainer;

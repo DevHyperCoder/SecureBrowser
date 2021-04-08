@@ -9,7 +9,6 @@ import android.widget.Button
 import android.widget.EditText
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.devhypercoder.securebrowser.R
 import com.devhypercoder.securebrowser.UserVIewModel
