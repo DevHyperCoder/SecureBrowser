@@ -9,21 +9,26 @@
     <RelativeLayout
         android:id="@+id/video_layout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:background="#23232e" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/main"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="#23232e">
 
         <EditText
             android:id="@+id/editText"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:hint="URL"
+            android:hint="@string/url"
+            android:importantForAutofill="no"
             android:inputType="textUri"
-            android:text="https://google.com"
-            app:layout_constraintLeft_toLeftOf="parent"
+            android:text="@string/default_url"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            app:layout_constraintLeft_toRightOf="@id/back_btn"
             app:layout_constraintRight_toLeftOf="@id/url_go_bt"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -31,8 +36,8 @@
             android:id="@+id/message"
             android:layout_width="match_parent"
             android:layout_height="0sp"
-            app:layout_constraintBottom_toTopOf="@id/back_btn"
-            app:layout_constraintTop_toBottomOf="@+id/editText"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/editText"
             app:layout_constraintVertical_bias="0.025"
             tools:layout_editor_absoluteX="0dp" />
 
@@ -40,16 +45,25 @@
             android:id="@+id/url_go_bt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="GO"
+            android:layout_margin="0sp"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:text="@string/go_url"
+            app:layout_constraintBottom_toBottomOf="@id/editText"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="@+id/editText" />
 
         <Button
             android:id="@+id/back_btn"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="back"
-            app:layout_constraintBottom_toBottomOf="parent" />
+            android:layout_margin="0sp"
+            android:minWidth="0sp"
+            android:minHeight="0sp"
+            android:text="@string/back"
+            app:layout_constraintBottom_toBottomOf="@id/editText"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="@id/editText" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </RelativeLayout>

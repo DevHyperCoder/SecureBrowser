@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">SecureBrowser</string>
+    <string name="password">Password</string>
+    <string name="submit">Submit</string>
+    <string name="url">URL</string>
+    <string name="default_url">https://devhypercoder.com</string>
+    <string name="go_url"><![CDATA[>]]></string>
+    <string name="back"><![CDATA[<]]></string>
 </resources>
