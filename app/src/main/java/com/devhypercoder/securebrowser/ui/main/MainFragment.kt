@@ -2,8 +2,6 @@ package com.devhypercoder.securebrowser.ui.main
 
 import android.annotation.SuppressLint
 import android.os.Bundle
-import android.text.Editable
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,7 +12,6 @@ import android.widget.Button
 import android.widget.EditText
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.devhypercoder.securebrowser.R
 import com.devhypercoder.securebrowser.UserVIewModel
@@ -22,7 +19,6 @@ import com.devhypercoder.securebrowser.UserVIewModel
 class MainFragment : Fragment() {
 
     private val userViewModel: UserVIewModel by activityViewModels()
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -35,7 +31,6 @@ class MainFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
 
         userViewModel.isLoggedIn.observe(viewLifecycleOwner) {
-            Log.d("TAG", "onActivityCreated: $it")
             if (!it) {
                 findNavController().navigate(R.id.action_mainFragment_to_loginFragment)
             }
@@ -80,12 +75,9 @@ class MainFragment : Fragment() {
     override fun onResume() {
         super.onResume()
         userViewModel.isLoggedIn.observe(viewLifecycleOwner) {
-            Log.d("TAG", "onActivityCreated: $it")
             if (!it) {
                 findNavController().navigate(R.id.action_mainFragment_to_loginFragment)
             }
         }
     }
-
-    private fun String.toEditable(): Editable = Editable.Factory.getInstance().newEditable(this)
 }
