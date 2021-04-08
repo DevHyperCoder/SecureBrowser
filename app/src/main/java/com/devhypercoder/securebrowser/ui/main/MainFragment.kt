@@ -15,6 +15,7 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.devhypercoder.securebrowser.R
 import com.devhypercoder.securebrowser.UserVIewModel
+import com.devhypercoder.securebrowser.VideoWebChromeClient
 
 class MainFragment : Fragment() {
 
@@ -52,6 +53,7 @@ class MainFragment : Fragment() {
         }
 
         webView.settings.javaScriptEnabled = true
+        webView.settings.javaScriptCanOpenWindowsAutomatically = true
         webView.settings.domStorageEnabled = true
 
         webView.loadUrl(urlEditText.text.toString())
@@ -64,6 +66,14 @@ class MainFragment : Fragment() {
             }
         }
 
+        val mainView = requireView().findViewById<ViewGroup>(R.id.main)
+        val videoView = requireView().findViewById<ViewGroup>(R.id.video_layout)
+
+        val videoWebChromeClient = VideoWebChromeClient(
+            mainView, videoView
+        )
+
+        webView.webChromeClient = videoWebChromeClient
     }
 
     override fun onPause() {
@@ -81,3 +91,4 @@ class MainFragment : Fragment() {
         }
     }
 }
+
