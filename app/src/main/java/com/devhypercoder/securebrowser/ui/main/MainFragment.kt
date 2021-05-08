@@ -37,8 +37,8 @@ class MainFragment : Fragment() {
         return inflater.inflate(R.layout.main_fragment, container, false)
     }
 
-    private lateinit var webView: WebView;
-    lateinit var historyDao: HistoryDao;
+    private lateinit var webView: WebView
+    lateinit var historyDao: HistoryDao
 
     @SuppressLint("SetJavaScriptEnabled")
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -71,7 +71,7 @@ class MainFragment : Fragment() {
                         ), // encode in Base64 encoded
                         "text/html; charset=utf-8", // utf-8 html content (personal recommendation)
                         "base64"
-                    ); // always use Base64 encoded data: NEVER PUT "utf-8" here (using base64 or not): This is wrong!
+                    ) // always use Base64 encoded data: NEVER PUT "utf-8" here (using base64 or not): This is wrong!
                 }
                 return@setOnClickListener
             }
