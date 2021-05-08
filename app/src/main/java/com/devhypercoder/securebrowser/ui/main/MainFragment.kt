@@ -2,6 +2,7 @@ package com.devhypercoder.securebrowser.ui.main
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.util.Base64
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -16,6 +17,9 @@ import androidx.navigation.fragment.findNavController
 import com.devhypercoder.securebrowser.R
 import com.devhypercoder.securebrowser.UserVIewModel
 import com.devhypercoder.securebrowser.VideoWebChromeClient
+import com.devhypercoder.securebrowser.helper.handleCommand
+import com.devhypercoder.securebrowser.helper.isCommand
+import java.nio.charset.StandardCharsets
 
 class MainFragment : Fragment() {
 
@@ -26,6 +30,7 @@ class MainFragment : Fragment() {
     ): View {
         return inflater.inflate(R.layout.main_fragment, container, false)
     }
+
 
     @SuppressLint("SetJavaScriptEnabled")
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -43,7 +48,21 @@ class MainFragment : Fragment() {
         val backBtn: Button = requireView().findViewById(R.id.back_btn)
 
         goToURLBtn.setOnClickListener {
-            webView.loadUrl(urlEditText.text.toString())
+            val url = urlEditText.text.toString()
+            if (isCommand(url)) {
+                val cmd = url.substring(1)
+                val html = handleCommand(cmd)
+                webView.loadData(
+                    Base64.encodeToString(
+                        html.toByteArray(StandardCharsets.UTF_8),
+                        Base64.DEFAULT
+                    ), // encode in Base64 encoded
+                    "text/html; charset=utf-8", // utf-8 html content (personal recommendation)
+                    "base64"
+                ); // always use Base64 encoded data: NEVER PUT "utf-8" here (using base64 or not): This is wrong!
+                return@setOnClickListener
+            }
+            webView.loadUrl(url)
         }
 
         backBtn.setOnClickListener {
