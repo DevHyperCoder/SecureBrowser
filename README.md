@@ -31,3 +31,5 @@ Feel free to send patches via Pull Requests or file a Issue if something doesnt 
 ## Credits
 [VideoWebChromeClient.java](https://github.com/cprcrack/VideoEnabledWebView/) -> inspired from cprcrack
 
+## LICENSE
+SecureBrowser is licensed under the GPL-3.0 license.
