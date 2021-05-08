@@ -1,11 +1,13 @@
 package com.devhypercoder.securebrowser.helper
 
+import com.devhypercoder.securebrowser.data.AppDatabase
+import com.devhypercoder.securebrowser.data.HistoryDao
 import com.devhypercoder.securebrowser.data.handleHistoryCommand
 
-fun handleCommand(cmd: String): String {
+suspend fun handleCommand(db: AppDatabase, historyDao: HistoryDao, cmd: String): String {
     return when (cmd) {
         "hist" -> {
-            return handleHistoryCommand()
+            return handleHistoryCommand(db,historyDao)
         }
         else -> "404"
     }

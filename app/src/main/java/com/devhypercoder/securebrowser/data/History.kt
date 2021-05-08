@@ -1,6 +1,8 @@
 package com.devhypercoder.securebrowser.data
 
-fun composeHistoryPage(historyItems: ArrayList<HistoryItem>): String {
+import androidx.room.*
+
+fun composeHistoryPage(histories: Array<History>): String {
     return """
             <style>
                 h1{
@@ -19,7 +21,7 @@ fun composeHistoryPage(historyItems: ArrayList<HistoryItem>): String {
             <h1>History</h1>
             
             ${
-        historyItems.joinToString {
+        histories.joinToString {
             """
                 <div>
                 ${it.toHtml()}
@@ -31,15 +33,17 @@ fun composeHistoryPage(historyItems: ArrayList<HistoryItem>): String {
 
 }
 
-fun handleHistoryCommand(): String {
-
-    val historyItems = ArrayList<HistoryItem>()
-    historyItems.add(HistoryItem("DevHyperCoder", "devhypercoder.com", 0))
-    historyItems.add(HistoryItem("GitHub", "https://github.com/devhypercoder/securebrowser", 1))
+suspend fun handleHistoryCommand(db:AppDatabase,histDao:HistoryDao): String {
+    val historyItems = histDao.getFullHistory()
     return composeHistoryPage(historyItems)
 }
 
-data class HistoryItem(val name: String, val url: String, val id: Int) {
+@Entity
+data class History(
+    val name: String,
+    val url: String,
+    @PrimaryKey(autoGenerate = true) val id: Int? = null
+) {
     fun toHtml(): String {
         return """
                 <div class="card" id="$id">
@@ -52,4 +56,13 @@ data class HistoryItem(val name: String, val url: String, val id: Int) {
                 </div>
             """.trimIndent()
     }
+}
+
+@Dao
+interface HistoryDao {
+    @Insert
+    suspend fun insertHistory(history: History)
+
+    @Query("SELECT * from history")
+    suspend fun getFullHistory(): Array<History>
 }
