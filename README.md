@@ -7,6 +7,11 @@ A password protected browser with history. Inspired by "Samsung Internet" browse
 - View videos in fullscreen (See for credits)
 - Privacy guard in Recent Apps
 - No Screenshots
+- Dot Commands
+
+## Dot Commands
+Dot commands are basic bindings to features like history, help etc. Currently the following are supported:
+- .hist -> Views history
 
 ## Screenshots of the app
 
