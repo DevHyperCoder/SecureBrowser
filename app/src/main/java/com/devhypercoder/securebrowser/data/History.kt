@@ -5,10 +5,10 @@ import androidx.room.*
 fun composeHistoryPage(histories: Array<History>): String {
     return """
             <style>
-            *{
-            background: #23232e;
-            color: white;
-            }
+                *{
+                    background: #23232e;
+                    color: white;
+                }
                 h1{
                     font-size: 6rem;
                     text-align: center;

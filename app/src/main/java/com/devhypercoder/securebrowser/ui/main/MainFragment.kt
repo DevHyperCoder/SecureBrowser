@@ -3,7 +3,6 @@ package com.devhypercoder.securebrowser.ui.main
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.util.Base64
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -107,7 +106,6 @@ class MainFragment : Fragment() {
                 super.onPageFinished(view, url)
                 val title = view?.title
                 val history = History(title!!, url!!)
-                Log.d("SecureBrowser", "onPause: $history")
                 MainScope().launch {
                     historyDao.insertHistory(history)
                 }

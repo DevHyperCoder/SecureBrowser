@@ -32,7 +32,6 @@ class LoginFragment : Fragment() {
         passwdBtn.setOnClickListener {
             if (passwdEditText.text.toString() == "asdf") {
                 userView.isLoggedIn.value = true
-                Log.d("TAG", "onActivityCreated: reached here")
                 findNavController().navigate(R.id.action_loginFragment_to_mainFragment)
             }
         }
