@@ -5,6 +5,10 @@ import androidx.room.*
 fun composeHistoryPage(histories: Array<History>): String {
     return """
             <style>
+            *{
+            background: #23232e;
+            color: white;
+            }
                 h1{
                     font-size: 6rem;
                     text-align: center;
@@ -33,10 +37,6 @@ fun composeHistoryPage(histories: Array<History>): String {
 
 }
 
-suspend fun handleHistoryCommand(db:AppDatabase,histDao:HistoryDao): String {
-    val historyItems = histDao.getFullHistory()
-    return composeHistoryPage(historyItems)
-}
 
 @Entity
 data class History(

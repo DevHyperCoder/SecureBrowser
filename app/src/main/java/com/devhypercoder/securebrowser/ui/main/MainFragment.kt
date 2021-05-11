@@ -21,7 +21,7 @@ import com.devhypercoder.securebrowser.VideoWebChromeClient
 import com.devhypercoder.securebrowser.data.AppDatabase
 import com.devhypercoder.securebrowser.data.History
 import com.devhypercoder.securebrowser.data.HistoryDao
-import com.devhypercoder.securebrowser.helper.handleCommand
+import com.devhypercoder.securebrowser.data.composeHistoryPage
 import com.devhypercoder.securebrowser.helper.isCommand
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.launch
@@ -62,8 +62,14 @@ class MainFragment : Fragment() {
             val url = urlEditText.text.toString()
             if (isCommand(url)) {
                 MainScope().launch {
-                    val cmd = url.substring(1)
-                    val html = handleCommand(db, historyDao, cmd)
+                    val html =
+                        when (val cmd = url.substring(1)) {
+                            "hist" -> {
+                                val historyItems = historyDao.getFullHistory()
+                                composeHistoryPage(historyItems)
+                            }
+                            else -> "Could not find a command named $cmd"
+                        }
                     webView.loadData(
                         Base64.encodeToString(
                             html.toByteArray(StandardCharsets.UTF_8),
