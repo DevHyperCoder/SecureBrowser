@@ -7,4 +7,7 @@
     <string name="go_url"><![CDATA[>]]></string>
     <string name="back"><![CDATA[<]]></string>
     <string name="change_password">Change password</string>
+    <string name="original_password">Original Password</string>
+    <string name="new_password">New Password</string>
+    <string name="confirm_new_password">Confirm new password</string>
 </resources>

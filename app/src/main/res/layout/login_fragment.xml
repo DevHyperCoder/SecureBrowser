@@ -31,7 +31,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/password_btn"
         android:layout_marginTop="20sp"
-        android:text="Change password"
+        android:text="@string/change_password"
         android:textColor="@color/white" />
 
     <RelativeLayout
@@ -46,7 +46,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/white"
-            android:hint="Original Password"
+            android:hint="@string/original_password"
             android:importantForAutofill="no"
             android:inputType="textPassword"
             android:textColor="@color/white"
@@ -58,7 +58,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/original_password"
             android:backgroundTint="@color/white"
-            android:hint="New Password"
+            android:hint="@string/new_password"
             android:importantForAutofill="no"
             android:inputType="textPassword"
             android:textColor="@color/white"
@@ -70,7 +70,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/new_password"
             android:backgroundTint="@color/white"
-            android:hint="Confirm new password"
+            android:hint="@string/confirm_new_password"
             android:importantForAutofill="no"
             android:inputType="textPassword"
             android:textColor="@color/white"
@@ -81,6 +81,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/new_confirm_password"
-            android:text="Change password" />
+            android:text="@string/change_password" />
     </RelativeLayout>
 </RelativeLayout>
