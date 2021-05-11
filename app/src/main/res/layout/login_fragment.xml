@@ -25,4 +25,62 @@
         android:layout_below="@id/password_input"
         android:text="@string/submit" />
 
+    <TextView
+        android:id="@+id/change_pass_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/password_btn"
+        android:layout_marginTop="20sp"
+        android:text="Change password"
+        android:textColor="@color/white" />
+
+    <RelativeLayout
+        android:id="@+id/change_pass_screen"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/change_pass_text"
+        android:visibility="invisible">
+
+        <EditText
+            android:id="@+id/original_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/white"
+            android:hint="Original Password"
+            android:importantForAutofill="no"
+            android:inputType="textPassword"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white" />
+
+        <EditText
+            android:id="@+id/new_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/original_password"
+            android:backgroundTint="@color/white"
+            android:hint="New Password"
+            android:importantForAutofill="no"
+            android:inputType="textPassword"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white" />
+
+        <EditText
+            android:id="@+id/new_confirm_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/new_password"
+            android:backgroundTint="@color/white"
+            android:hint="Confirm new password"
+            android:importantForAutofill="no"
+            android:inputType="textPassword"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white" />
+
+        <Button
+            android:id="@+id/change_pass_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/new_confirm_password"
+            android:text="Change password" />
+    </RelativeLayout>
 </RelativeLayout>

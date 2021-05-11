@@ -6,4 +6,5 @@
     <string name="default_url">https://devhypercoder.com</string>
     <string name="go_url"><![CDATA[>]]></string>
     <string name="back"><![CDATA[<]]></string>
+    <string name="change_password">Change password</string>
 </resources>
