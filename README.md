@@ -4,6 +4,7 @@ A password protected browser with history. Inspired by "Samsung Internet" browse
 
 ## Features
 - Password based login
+- Stores History and Login cookies behind a password access
 - View videos in fullscreen (See for credits)
 - Privacy guard in Recent Apps
 - No Screenshots
@@ -18,11 +19,17 @@ Dot commands are basic bindings to features like history, help etc. Currently th
 ### Password Insert Screen:
 ![Password insert screen](./assets/passwd_screen.png)
 
+### Change Password Screen
+![Password Change](./assets/new_passwd_screen.png)
+
 ### No Screenshots and Privacy guard
 ![Privacy guard](./assets/secure_lock.png)
 
 ### Website Controls
 ![Website Controls](./assets/webview_screen.png)
+
+### History
+![History Screen](./assets/dot_hist.png)
 
 The left button goes backwards while the right one goes to the URL (NOT Forward)
 
